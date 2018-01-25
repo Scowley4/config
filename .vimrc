@@ -17,7 +17,7 @@ set textwidth=79
 set expandtab
 set autoindent
 
-" Turn of arrow keys to force use of hjkl
+" Turn off arrow keys to force use of hjkl
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
