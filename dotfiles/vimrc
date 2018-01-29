@@ -10,12 +10,33 @@ augroup END
 
 
 " Change the tabbing for python
+function SetPythonOptions()
+    echo "Called SetPythonOptions"
+endfunction
+
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set textwidth=79
 set expandtab
 set autoindent
+
+
+
+autocmd FileType python call SetPythonOptions()
+
+
+" Change tabbing for makefile
+function SetMakeOptions()
+    echo "Called SetMakeOptions"
+    setlocal noexpandtab
+   " setlocal tabstop=20
+   " setlocal softtabstop=20
+   " setlocal shiftwidth=20
+endfunction
+
+autocmd FileType make call SetMakeOptions()
+
 
 " Turn off arrow keys to force use of hjkl
 noremap <Up> <NOP>
