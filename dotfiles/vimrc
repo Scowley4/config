@@ -37,6 +37,8 @@ endfunction
 
 autocmd FileType make call SetMakeOptions()
 
+" HTML
+autocmd FileType HTML setlocal tabstop=2 
 
 " Turn off arrow keys to force use of hjkl
 noremap <Up> <NOP>
