@@ -17,6 +17,10 @@ set ignorecase
 set smartcase
 
 " Change the tabbing for python
+function SetPythonOptions()
+    echo "Called SetPythonOptions"
+endfunction
+
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -24,8 +28,32 @@ set textwidth=79
 set expandtab
 set autoindent
 
+
+
+autocmd FileType python call SetPythonOptions()
+
+
+" Change tabbing for makefile
+function SetMakeOptions()
+    echo "Called SetMakeOptions"
+    setlocal noexpandtab
+   " setlocal tabstop=20
+   " setlocal softtabstop=20
+   " setlocal shiftwidth=20
+endfunction
+
+autocmd FileType make call SetMakeOptions()
+
+" HTML
+autocmd FileType HTML setlocal tabstop=2 
+
 " Turn off arrow keys to force use of hjkl
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
