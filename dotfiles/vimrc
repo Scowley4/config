@@ -8,6 +8,13 @@ augroup numbertoggle
     autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
 augroup END
 
+" Splits below and to the right
+set splitbelow
+set splitright
+
+" Search options
+set ignorecase
+set smartcase
 
 " Change the tabbing for python
 set tabstop=4
