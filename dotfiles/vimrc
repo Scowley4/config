@@ -8,6 +8,15 @@ augroup numbertoggle
     autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
 augroup END
 
+
+"https://stackoverflow.com/questions/29167604/setting-vim-cursorline-colors
+"hi Cursor ctermfg=White ctermbg=Yellow cterm=bold guifg=white guibg=yellow
+"hi gui=bold
+
+"hi CursorColumn ctermfg=White ctermbg=Yellow cterm=bold guifg=white
+"hi guibg=yellow gui=bold
+
+
 " Splits below and to the right
 set splitbelow
 set splitright
