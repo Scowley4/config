@@ -54,7 +54,10 @@ endfunction
 autocmd FileType make call SetMakeOptions()
 
 " HTML
-autocmd FileType HTML setlocal tabstop=2 
+autocmd FileType html
+    \echo "html"
+    \setlocal tabstop=2 
+    \setlocal softtabstop=2
 
 " Turn off arrow keys to force use of hjkl
 noremap <Up> <NOP>
@@ -62,7 +65,11 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+" Remaps for switching vim panes
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
+
+" Remaps for setting up snippets
+nnoremap ,html :-1read $HOME/.vim/snippets/skeleton.html<CR>3jf>a
