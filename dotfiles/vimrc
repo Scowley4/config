@@ -30,7 +30,7 @@ function SetPythonOptions()
     echo "Called SetPythonOptions"
 endfunction
 
-set tabstop=4
+setlocal tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set textwidth=79
@@ -54,7 +54,17 @@ endfunction
 autocmd FileType make call SetMakeOptions()
 
 " HTML
-autocmd FileType HTML setlocal tabstop=2 
+function SetHtmlOptions()
+    " echo "Called SetHtmlOptions"
+endfunction
+
+au BufNewFile,BufRead,FileType *.js, *.html, *.css
+    \ echo "read html"
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+
+autocmd FileType html call SetHtmlOptions()
 
 " Turn off arrow keys to force use of hjkl
 noremap <Up> <NOP>
