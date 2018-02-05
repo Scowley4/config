@@ -32,7 +32,9 @@ def link_exists(src, dst):
 
 def ensure_link(src, dst):
     """Ensures that the dst is a symlink to the src"""
-    if not link_exists(src, dst):
+    if link_exists(src, dst):
+        print('Link exists',dst,'to',src)
+    else:
         print('Linking', dst)
         ensure_filedir(dst)
         ensure_removed(dst)
@@ -52,10 +54,10 @@ def link_dotfiles(config_path=None):
     home = os.environ['HOME']
     config_path = os.path.join(home,config_path) if config_path else home
     vimrc_path = os.path.join(config_path, 'config','dotfiles')
-    
-    src = os.path.abspath(os.path.join(vimrc_path,'vimrc'))
-    dst = os.path.join(home,'.vimrc')
-    ensure_link(src,dst)
+    for filename in ['vimrc','vim']:
+        src = os.path.abspath(os.path.join(vimrc_path, filename))
+        dst = os.path.join(home, '.'+filename)
+        ensure_link(src,dst)
 if __name__=='__main__':
     if len(argv)>1: 
         link_dotfiles(argv[1])
