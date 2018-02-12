@@ -1,12 +1,22 @@
-colorscheme lucid
+silent! colorscheme lucid
 set t_Co=256
+
+set showcmd
 
 set number relativenumber
 augroup numbertoggle
     autocmd!
-    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-    autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+    " https://gist.github.com/nobe4/aa8313fe98ca8821afad
+    autocmd WinEnter,BufEnter,FocusGained,InsertLeave * set relativenumber
+    autocmd WinLeave,BufLeave,FocusLost,InsertEnter * set norelativenumber
 augroup END
+
+" Turn on cursor line
+set cursorline
+
+" Set chars for whitespace
+set listchars=tab:»\ ,trail:•,nbsp:•
+set list
 
 
 "https://stackoverflow.com/questions/29167604/setting-vim-cursorline-colors
@@ -24,6 +34,9 @@ set splitright
 " Search options
 set ignorecase
 set smartcase
+" Map <esc> to quickly turn off highlight of last search
+" WARNING: Causes error which presses c immediately upon opening vim.
+" nnoremap <silent> <esc> :nohlsearch<CR><esc>
 
 " Change the tabbing for python
 function SetPythonOptions()
@@ -46,16 +59,16 @@ autocmd FileType python call SetPythonOptions()
 function SetMakeOptions()
     echo "Called SetMakeOptions"
     setlocal noexpandtab
-   " setlocal tabstop=20
-   " setlocal softtabstop=20
-   " setlocal shiftwidth=20
 endfunction
 
 autocmd FileType make call SetMakeOptions()
 
 " HTML
 function SetHtmlOptions()
-    " echo "Called SetHtmlOptions"
+    echo "Called SetHtmlOptions"
+    set softtabstop=2
+    set tabstop=2
+    set shiftwidth=2
 endfunction
 
 au BufNewFile,BufRead,FileType *.js, *.html, *.css
@@ -80,3 +93,5 @@ nmap <C-l> <C-w>l
 
 " Remaps for setting up snippets
 nnoremap ,html :-1read $HOME/.vim/snippets/skeleton.html<CR>3jf>a
+
+
