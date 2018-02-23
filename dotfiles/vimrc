@@ -2,7 +2,7 @@ silent! colorscheme lucid
 set t_Co=256
 
 set showcmd
-
+filetype plugin on
 set number relativenumber
 augroup numbertoggle
     autocmd!
