@@ -71,13 +71,14 @@ function SetHtmlOptions()
     set shiftwidth=2
 endfunction
 
-au BufNewFile,BufRead,FileType *.js, *.html, *.css
-    \ echo "read html"
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
+" au BufNewFile,BufRead,FileType *.js, *.html, *.css
+"    \ set tabstop=2
+"    \ set softtabstop=2
+"    \ set shiftwidth=2
 
 autocmd FileType html call SetHtmlOptions()
+autocmd FileType javascript call SetHtmlOptions()
+
 
 " Turn off arrow keys to force use of hjkl
 noremap <Up> <NOP>
