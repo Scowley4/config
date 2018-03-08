@@ -53,9 +53,9 @@ def link_dotfiles(config_path=None):
     """Create symlink for dotfiles in home directory"""
     home = os.environ['HOME']
     config_path = os.path.join(home,config_path) if config_path else home
-    vimrc_path = os.path.join(config_path, 'config', 'dotfiles')
-    for filename in ['vimrc', 'vim', 'bashrc']:
-        src = os.path.abspath(os.path.join(vimrc_path, filename))
+    dotfiles = os.path.join(config_path, 'config', 'dotfiles')
+    for filename in ['vimrc', 'vim', 'bashrc', 'tmux.conf']:
+        src = os.path.abspath(os.path.join(dotfiles, filename))
         dst = os.path.join(home, '.'+filename)
         ensure_link(src,dst)
 if __name__=='__main__':
