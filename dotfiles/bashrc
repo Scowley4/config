@@ -1,0 +1,6 @@
+# I believe these don't do anything. Just keeping them for revert if needed
+# COLOR_SHCEME="/.color_scheme/color_scheme1"
+# [[ -s $COLOR_SCHEME ]] && source $COLOR_SCHEME
+
+# Sets the color capabilities of tmux, allowing (esp vim) use of all colors
+[ -z "$TMUX" ] && export TERM="xterm-256color"
