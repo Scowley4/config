@@ -54,7 +54,7 @@ def link_dotfiles(config_path=None):
     home = os.environ['HOME']
     config_path = os.path.join(home,config_path) if config_path else home
     dotfiles = os.path.join(config_path, 'config', 'dotfiles')
-    for filename in ['vimrc', 'vim', 'bashrc', 'tmux.conf']:
+    for filename in ['vimrc', 'vim', 'bashrc', 'tmux.conf', 'jupyter']:
         src = os.path.abspath(os.path.join(dotfiles, filename))
         dst = os.path.join(home, '.'+filename)
         ensure_link(src,dst)

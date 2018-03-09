@@ -1,0 +1,10 @@
+{
+  "CodeCell": {
+    "cm_config": {
+      "lineNumbers": true
+    }
+  },
+  "load_extensions": {
+    "vim_binding/vim_binding": true
+  }
+}
