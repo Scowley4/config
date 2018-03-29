@@ -11,8 +11,9 @@ augroup numbertoggle
     autocmd WinLeave,BufLeave,FocusLost,InsertEnter * set norelativenumber
 augroup END
 
-" Turn on cursor line
+" Turn on cursor line and column
 set cursorline
+set cursorcolumn
 
 " Set chars for whitespace
 set listchars=tab:»\ ,trail:•,nbsp:•
@@ -35,6 +36,8 @@ set splitright
 set hlsearch
 set ignorecase
 set smartcase
+highlight Search cterm=underline ctermfg=8
+
 " Map <esc> to quickly turn off highlight of last search
 " WARNING: Causes error which presses c immediately upon opening vim.
 " nnoremap <silent> <esc> :nohlsearch<CR><esc>
