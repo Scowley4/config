@@ -36,7 +36,6 @@ set splitright
 set hlsearch
 set ignorecase
 set smartcase
-highlight Search cterm=underline ctermfg=8
 
 " Map <esc> to quickly turn off highlight of last search
 " WARNING: Causes error which presses c immediately upon opening vim.

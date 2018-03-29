@@ -1,4 +1,5 @@
 " Lucid is a 256-color (only) colorscheme based on Lucius
+" A few slight modifications made by Stephen Cowley
 
 set background=dark
 highlight clear
@@ -74,7 +75,7 @@ highlight DiffText       ctermfg=203  ctermbg=52   cterm=bold
 highlight Folded         ctermfg=117  ctermbg=238  cterm=NONE
 highlight FoldColumn     ctermfg=117  ctermbg=238  cterm=NONE
 highlight IncSearch      ctermfg=87                cterm=reverse
-highlight Search                      ctermbg=81   cterm=NONE
+highlight Search         ctermfg=8    ctermbg=81   cterm=underline
 highlight Pmenu          ctermfg=253  ctermbg=233  cterm=NONE
 highlight PmenuSel       ctermfg=186  ctermbg=237  cterm=NONE
 highlight PMenuSbar                   ctermbg=59   cterm=NONE
