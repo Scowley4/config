@@ -86,6 +86,7 @@ autocmd FileType javascript call SetWebOptions()
 autocmd FileType json call SetWebOptions()
 autocmd FileType css call SetWebOptions()
 autocmd BufRead,BufNewFile *.vue set syntax=html
+autocmd BufRead,BufNewFile *.vue call SetWebOptions()
 
 
 " Turn off arrow keys to force use of hjkl
