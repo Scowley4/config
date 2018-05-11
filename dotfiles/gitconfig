@@ -1,0 +1,7 @@
+[user]
+	email = stephencowley44@gmail.com
+	name = Stephen Cowley
+[core]
+	editor = vim
+[color]
+	ui = true
