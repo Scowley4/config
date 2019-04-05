@@ -53,15 +53,14 @@ set textwidth=79
 set expandtab
 set autoindent
 
-
 set pastetoggle=<F2>
 
 syntax on
 
-
+" Fold replacement text - sets indent to match the told line of fold
+set foldtext=repeat('\ ',indent(v:foldstart)).foldtext()
 
 autocmd FileType python call SetPythonOptions()
-
 
 " Change tabbing for makefile
 function SetMakeOptions()
@@ -91,7 +90,6 @@ autocmd FileType json call SetWebOptions()
 autocmd FileType css call SetWebOptions()
 " autocmd BufRead,BufNewFile *.vue set syntax=html
 autocmd BufRead,BufNewFile *.vue call SetWebOptions()
-
 
 " Turn off arrow keys to force use of hjkl
 noremap <Up> <NOP>
