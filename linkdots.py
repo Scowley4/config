@@ -3,7 +3,7 @@
 
 import os
 import imp
-from sys import argv
+import sys
 def ensure_filedir(filename):
     """Ensures that the directory path of a file exists"""
     try:
@@ -49,17 +49,19 @@ def clone(repo, path):
         os.system('git clone {} {}'.format(repo, path))
 
 
-def link_dotfiles(config_path=None):
+def link_dotfiles(config_path=None, files=None, include_git=False):
     """Create symlink for dotfiles in home directory"""
+
+    filenames = ['vimrc', 'vim', 'bashrc', 'tmux.conf']
+    if include_git:
+        filenames.append('gitconfig')
     home = os.environ['HOME']
-    config_path = os.path.join(home,config_path) if config_path else home
-    dotfiles = os.path.join(config_path, 'config', 'dotfiles')
-    for filename in ['vimrc', 'vim', 'bashrc', 'tmux.conf', 'gitconfig']:
-        src = os.path.abspath(os.path.join(dotfiles, filename))
+    config_path = os.path.join(home, config_path) if config_path else home
+    dot_path = os.path.join(config_path, 'config', 'dotfiles')
+    for filename in filenames:
+        src = os.path.abspath(os.path.join(dot_path, filename))
         dst = os.path.join(home, '.'+filename)
-        ensure_link(src,dst)
+        ensure_link(src, dst)
+
 if __name__=='__main__':
-    if len(argv)>1: 
-        link_dotfiles(argv[1])
-    else:
-        link_dotfiles()
+    link_dotfiles(include_git=('git' in sys.argv))
