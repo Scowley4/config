@@ -2,7 +2,6 @@
 """Common utils for config python scripts"""
 
 import os
-import imp
 import sys
 def ensure_filedir(filename):
     """Ensures that the directory path of a file exists"""
