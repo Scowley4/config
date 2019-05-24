@@ -51,7 +51,8 @@ def clone(repo, path):
 def link_dotfiles(config_path=None, files=None, include_git=False):
     """Create symlink for dotfiles in home directory"""
 
-    filenames = ['vimrc', 'vim', 'bashrc', 'tmux.conf']
+    filenames = ['vimrc', 'vim', 'bashrc', 'tmux.conf', 'inputrc']
+
     if include_git:
         filenames.append('gitconfig')
     home = os.environ['HOME']

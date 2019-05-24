@@ -1,3 +1,10 @@
+# Ignore the case for tab completition
 set completion-ignore-case on
+
+# Use Vi style editing
 set editing-mode vi
-set keymap vi-command
+
+# Use the below line to add addition keymaps for vi command
+# set keymap vi-command
+# Use the below line to add addition keymaps for vi insert
+# set keymap vi-insert
