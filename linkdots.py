@@ -51,12 +51,13 @@ def clone(repo, path):
 def link_dotfiles(config_path=None, files=None, include_git=False):
     """Create symlink for dotfiles in home directory"""
 
-    filenames = ['vimrc', 'vim', 'bashrc', 'tmux.conf', 'inputrc']
+    filenames = ['vimrc', 'vim', 'bashrc', 'tmux.conf',
+                 'inputrc', 'ipython/profile_default/ipython_config.py']
 
     if include_git:
         filenames.append('gitconfig')
     home = os.environ['HOME']
-    config_path = os.path.join(home, config_path) if config_path else home
+    config_path = os.path.join(home, config_path) if config_path is not None else home
     dot_path = os.path.join(config_path, 'config', 'dotfiles')
     for filename in filenames:
         src = os.path.abspath(os.path.join(dot_path, filename))
