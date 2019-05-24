@@ -4,6 +4,11 @@ set completion-ignore-case on
 # Use Vi style editing
 set editing-mode vi
 
+# Display mode
+set show-mode-in-prompt on
+set vi-cmd-mode-string "\1\e[2 q\2"
+set vi-ins-mode-string "\1\e[6 q\2"
+
 # Use the below line to add addition keymaps for vi command
 # set keymap vi-command
 # Use the below line to add addition keymaps for vi insert
