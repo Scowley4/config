@@ -52,7 +52,8 @@ def link_dotfiles(config_path=None, files=None, include_git=False):
     """Create symlink for dotfiles in home directory"""
 
     filenames = ['vimrc', 'vim', 'bashrc', 'tmux.conf',
-                 'inputrc', 'ipython/profile_default/ipython_config.py']
+                 'inputrc', 'ipython/profile_default/ipython_config.py',
+                 'bash_profile']
 
     if include_git:
         filenames.append('gitconfig')
