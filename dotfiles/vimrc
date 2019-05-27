@@ -2,7 +2,9 @@ silent! colorscheme lucid
 set t_Co=256
 
 set showcmd
+
 filetype plugin on
+
 set number relativenumber
 augroup numbertoggle
     autocmd!
@@ -88,7 +90,6 @@ autocmd FileType html call SetWebOptions()
 autocmd FileType javascript call SetWebOptions()
 autocmd FileType json call SetWebOptions()
 autocmd FileType css call SetWebOptions()
-" autocmd BufRead,BufNewFile *.vue set syntax=html
 autocmd BufRead,BufNewFile *.vue call SetWebOptions()
 
 " Turn off arrow keys to force use of hjkl
@@ -106,7 +107,6 @@ nmap <C-l> <C-w>l
 " Remaps for setting up snippets
 nnoremap ,html :-1read $HOME/.vim/snippets/skeleton.html<CR>3jf>a
 nnoremap ,main :-1read $HOME/.vim/snippets/main.py<CR>
-
 nnoremap ,class :-1read $HOME/.vim/snippets/class.py<CR>
 
 
