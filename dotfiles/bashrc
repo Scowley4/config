@@ -9,8 +9,15 @@
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+
 # ls aliases
-alias ls='ls --color=auto' # Always use color
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    alias ls='ls -G'
+else
+    alias ls='ls --color=auto' # Always use color
+fi
+
+
 
 # Igorning commands I don't need to save (colon separated list)
 export HISTIGNORE="ls:cd:cd .."
