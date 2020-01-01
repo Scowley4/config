@@ -21,6 +21,8 @@ set cursorcolumn
 set listchars=tab:»\ ,trail:•,nbsp:•
 set list
 
+" Ignore case for files in command-line mode
+set wildignorecase
 
 "https://stackoverflow.com/questions/29167604/setting-vim-cursorline-colors
 "hi Cursor ctermfg=White ctermbg=Yellow cterm=bold guifg=white guibg=yellow
@@ -40,15 +42,13 @@ set ignorecase
 set smartcase
 set belloff=all
 
-set belloff
-
 " Map <esc> to quickly turn off highlight of last search
 " WARNING: Causes error which presses c immediately upon opening vim.
 " nnoremap <silent> <esc> :nohlsearch<CR><esc>
 
 " Change the tabbing for python
 function SetPythonOptions()
-    echo "Called SetPythonOptions"
+"    echo "Called SetPythonOptions"
 endfunction
 
 setlocal tabstop=4
