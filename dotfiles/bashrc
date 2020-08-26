@@ -22,3 +22,6 @@ fi
 
 # Igorning commands I don't need to save (colon separated list)
 export HISTIGNORE="ls:cd:cd .."
+
+export VISUAL=vim
+export EDITOR="VISUAL"
