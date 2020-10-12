@@ -40,7 +40,11 @@ set splitright
 set hlsearch
 set ignorecase
 set smartcase
-set belloff=all
+
+try
+    set belloff=all
+catch
+endtry
 
 " Map <esc> to quickly turn off highlight of last search
 " WARNING: Causes error which presses c immediately upon opening vim.
