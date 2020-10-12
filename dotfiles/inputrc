@@ -3,6 +3,7 @@ set completion-ignore-case on
 
 # Use Vi style editing
 set editing-mode vi
+set keymap vi
 
 # Display mode
 # set show-mode-in-prompt on
