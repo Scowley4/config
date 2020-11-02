@@ -2,6 +2,7 @@ silent! colorscheme lucid
 set t_Co=256
 
 set showcmd
+set laststatus=2
 
 filetype plugin on
 
@@ -51,7 +52,7 @@ endtry
 " nnoremap <silent> <esc> :nohlsearch<CR><esc>
 
 " Change the tabbing for python
-function SetPythonOptions()
+function! SetPythonOptions()
 "    echo "Called SetPythonOptions"
 endfunction
 
@@ -72,7 +73,7 @@ set foldtext=repeat('\ ',indent(v:foldstart)).foldtext()
 autocmd FileType python call SetPythonOptions()
 
 " Change tabbing for makefile
-function SetMakeOptions()
+function! SetMakeOptions()
     echo "Called SetMakeOptions"
     setlocal noexpandtab
 endfunction
@@ -80,8 +81,8 @@ endfunction
 autocmd FileType make call SetMakeOptions()
 
 " HTML
-function SetWebOptions()
-    echo "Set options for html, js, json, css"
+function! SetWebOptions()
+    " echo "Set options for html, js, json, css"
     set softtabstop=2
     set tabstop=2
     set shiftwidth=2
@@ -93,10 +94,12 @@ endfunction
 "    \ set softtabstop=2
 "    \ set shiftwidth=2
 
+" TODO I don't think these belong here, plus should probably be setlocal?
 autocmd FileType html call SetWebOptions()
 autocmd FileType javascript call SetWebOptions()
 autocmd FileType json call SetWebOptions()
 autocmd FileType css call SetWebOptions()
+autocmd FileType cpp call SetWebOptions()
 autocmd BufRead,BufNewFile *.vue call SetWebOptions()
 
 " Turn off arrow keys to force use of hjkl
@@ -116,4 +119,73 @@ nnoremap ,html :-1read $HOME/.vim/snippets/skeleton.html<CR>3jf>a
 nnoremap ,main :-1read $HOME/.vim/snippets/main.py<CR>
 nnoremap ,class :-1read $HOME/.vim/snippets/class.py<CR>
 
+" Set filename:linenumber
+" https://stackoverflow.com/a/24463362/7228140 -- Get relative path
+" https://stackoverflow.com/questions/295321/  -- Get line number
+function! SetFnLn()
+    echo "Hello there"
+    " let @" = fnamemodify(expand('%'), ':~:.') . ":" . line('.') . "\n"
+    "setreg('"', expand('%'))
+    "setreg('"', line('.'), 'a')
+    let @" = fnamemodify(expand('%'), ':~:.')
+    let @" .= ':'
+    let @" .= line('.')
+    let @" .= "\n"
+endfunction
 
+
+fun! RegBuff()
+    " This is a nifty little function
+    let vimstuff = "/tmp/vimstuff"
+    if !isdirectory(vimstuff)
+        call mkdir(vimstuff)
+    endif
+    let reg = getchar()
+    let reg = nr2char(reg)
+    exec 'au BufWrite vimreg-* exec "normal gg0\"'.reg.'y$"'
+    exec '1new '.vimstuff.'/vimreg-'.reg
+    exec 'normal ggdG"'.reg.'P'
+endfun
+nnoremap <leader><F2> :call RegBuff()<CR>
+
+" See :help CTRL-W_F
+function! OpenFileWithLineNumber(opener)
+    let s = expand('<cWORD>')
+    let splt = split(s, ':')
+    echo splt
+    exec a:opener '+'.splt[1] splt[0]
+endfunction
+
+" https://stackoverflow.com/a/6094578/7228140
+function! PasteWindow(opener)
+    if exists("g:yanked_buffer")
+        if a:opener == 'e'
+            let tmp_buffer = bufnr('%')
+        endif
+
+        exec a:opener "+buffer".g:yanked_buffer
+        if a:opener == 'e'
+            let g:yanked_buffer = tmp_buffer
+        endif
+    endif
+endfunction
+
+"yank/paste buffers
+:nmap <silent> <Leader>wy  :let g:yanked_buffer=bufnr('%')<cr>
+:nmap <silent> <Leader>wx  :let g:yanked_buffer=bufnr('%')<cr>:q<cr>
+:nmap <silent> <Leader>wp :call PasteWindow('e')<cr>
+:nmap <silent> <Leader>ws :call PasteWindow('sp')<cr>
+:nmap <silent> <Leader>wv :call PasteWindow('vsp')<cr>
+:nmap <silent> <Leader>wt :call PasteWindow('tabnew')<cr>
+
+
+" Setup macros
+let @n=':call SetFnLn()il'
+
+" TODO Rethink some of these?
+nnoremap <Leader>e :call OpenFileWithLineNumber('e')<CR>
+nnoremap <Leader>s :call OpenFileWithLineNumber('sp')<CR>
+nnoremap <Leader>v :call OpenFileWithLineNumber('vsp')<CR>
+
+iabbrev cout std::cout
+iabbrev endl std::endl
