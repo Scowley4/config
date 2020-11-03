@@ -62,7 +62,7 @@ def clone(repo, path):
 
 def link_dotfiles(config_path=None, files=None, include_git=False):
     """Create symlink for dotfiles in home directory"""
-    backupdir = os.path.expanduser('~/dotfilebackup')
+    backupdir = os.path.expanduser('~/.dotfilebackup')
     os.makedirs(backupdir, exist_ok=True)
 
     filenames = ['vimrc', 'vim', 'bashrc', 'tmux.conf',
