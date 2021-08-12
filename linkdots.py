@@ -67,7 +67,7 @@ def link_dotfiles(config_path=None, files=None, include_git=False):
 
     filenames = ['vimrc', 'vim', 'bashrc', 'tmux.conf',
                  'inputrc', 'ipython/profile_default/ipython_config.py',
-                 'bash_profile']
+                 'bash_profile', 'teclarc']
 
     if include_git:
         filenames.append('gitconfig')
