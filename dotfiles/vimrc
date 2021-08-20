@@ -3,6 +3,22 @@
 let g:pathogen_blacklist = []
 execute pathogen#infect()
 
+" Airline options
+" let g:airline_powerline_fonts=1
+" let g:airline#extensions#tabline#enabled=1
+" let g:airline#extensions#tabline#show_buffers=1
+" let g:airline#extensions#tabline#show_tab_type=1
+" let g:airline#extensions#tabline#show_close_button=0
+" let g:airline#extensions#tabline#show_buffers=1
+" let g:airline#extensions#tabline#show_splits=1
+" let g:airline#extensions#tabline#show_tabs=1
+" let g:airline#extensions#tabline#tab_nr_type=1
+" let g:airline#extensions#tabline#show_tab_nr=1
+" let g:airline#extensions#tabline#buffer_idx_mode=1
+" let g:airline#extensions#tabline#buffer_nr_show=1
+" let g:airline#extensions#tabline#fnamemod=':t'
+" let g:airline#extensions#syntastic#enabled=1
+
 if (index(g:pathogen_blacklist, 'vim-airline'))
     let g:airline_theme = 'deus_mod'
     " With tagbar
@@ -22,12 +38,16 @@ if (index(g:pathogen_blacklist, 'vim-syntastic'))
     let g:syntastic_check_on_open = 1
     let g:syntastic_check_on_wq = 0
 
+    " Height of check window (defualt 10)
+    let g:syntastic_loc_list_height = 5
+
     " Using c++11
-    let g:syntastic_cpp_compiler_options='-std=c++11'
+    let g:syntastic_cpp_compiler_options = '-std=c++11'
+    let g:syntastic_cpp_check_header = 1
 
     " Python 3 syntax checker
     let g:syntastic_python_python_exec = 'python3'
-    let g:syntastic_python_checkers=['python']
+    let g:syntastic_python_checkers = ['python']
 
     "disable syntastic on a per buffer basis
     function! SyntasticDisableBuffer()
@@ -76,6 +96,9 @@ set list
 
 " Ignore case for files in command-line mode
 set wildignorecase
+
+" Show two lines of text above/below cursor line
+set scrolloff=2
 
 "https://stackoverflow.com/questions/29167604/setting-vim-cursorline-colors
 "hi Cursor ctermfg=White ctermbg=Yellow cterm=bold guifg=white guibg=yellow
@@ -245,3 +268,13 @@ cabbr <expr> %% expand('%:p:h')
 nnoremap ,td oTODO:<C-R>=strftime('%Y%m%d')<CR>:shc:
 nnoremap ,/td o// TODO:<C-R>=strftime('%Y%m%d')<CR>:shc:
 
+" Function to automatically resize all windows
+" IN DEVELOPMENT
+function! RS()
+    let g:win_w = winwidth(0)
+    let g:win_h = winheight(0)
+    echo g:win_h
+    resize g:win_h
+    let g:windowcount = winnr('$')
+    "resize
+endfunction
