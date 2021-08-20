@@ -231,8 +231,16 @@ nnoremap <Leader>e :call OpenFileWithLineNumber('e')<CR>
 nnoremap <Leader>s :call OpenFileWithLineNumber('sp')<CR>
 nnoremap <Leader>v :call OpenFileWithLineNumber('vsp')<CR>
 
+" https://stackoverflow.com/a/20883905/7228140
+" Jump to next non blank character in column
+" see /\%v and search
+noremap <Leader>c :call search('\%' . virtcol('.') . 'v\S', 'W') <CR>
+
 iabbrev cout std::cout
 iabbrev endl std::endl
+
+" For commands, expand %% to the full path (:p) of the current file (%), head (:h)
+cabbr <expr> %% expand('%:p:h')
 
 nnoremap ,td oTODO:<C-R>=strftime('%Y%m%d')<CR>:shc:
 nnoremap ,/td o// TODO:<C-R>=strftime('%Y%m%d')<CR>:shc:
