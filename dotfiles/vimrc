@@ -27,7 +27,7 @@ if (index(g:pathogen_blacklist, 'vim-syntastic'))
 
     " Python 3 syntax checker
     let g:syntastic_python_python_exec = 'python3'
-    let g:syntastic_python_checkers=['python']
+    let g:syntastic_python_checkers = ['python']
 
     "disable syntastic on a per buffer basis
     function! SyntasticDisableBuffer()
@@ -237,3 +237,15 @@ iabbrev endl std::endl
 nnoremap ,td oTODO:<C-R>=strftime('%Y%m%d')<CR>:shc:
 nnoremap ,/td o// TODO:<C-R>=strftime('%Y%m%d')<CR>:shc:
 
+" Paste a deleted line in place (don't make new line)
+function! CleanPaste(pastetype)
+    let reg_contents = getreg(v:register)
+    if a:pastetype == 'after'
+        exec 'normal! a'.(trim(reg_contents))
+    elseif a:pastetype == 'before'
+        exec 'normal! i'.(trim(reg_contents))
+    endif
+endfunction
+
+nnoremap <Leader>p :call CleanPaste('after')<CR>
+nnoremap <Leader>P :call CleanPaste('before')<CR>
