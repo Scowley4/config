@@ -151,6 +151,7 @@ autocmd FileType json call SetWebOptions()
 autocmd FileType css call SetWebOptions()
 autocmd FileType cpp call SetWebOptions()
 autocmd BufRead,BufNewFile *.vue call SetWebOptions()
+autocmd Filetype dart setlocal softtabstop=2 tabstop=2 shiftwidth=2 expandtab
 
 " Turn off arrow keys to force use of hjkl
 noremap <Up> <NOP>
@@ -249,3 +250,12 @@ endfunction
 
 nnoremap <Leader>p :call CleanPaste('after')<CR>
 nnoremap <Leader>P :call CleanPaste('before')<CR>
+
+
+augroup flutter
+    autocmd!
+    autocmd BufRead,BufNewFile __Flutter_Output__ nnoremap <buffer> <Leader>fr :FlutterRun --no-sound-null-safety<CR>
+    autocmd BufRead,BufNewFile __Flutter_Output__ nnoremap <buffer> <Leader>fa :FlutterRun --no-sound-null-safety -d all<CR>
+    autocmd BufRead,BufNewFile __Flutter_Output__ nnoremap <buffer> <Leader>fq :FlutterQuit <CR>
+    autocmd WinEnter,BufEnter,FocusGained __Flutter_Output__ exec 'normal! G'
+augroup END
