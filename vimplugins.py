@@ -11,11 +11,9 @@ SUB = 'bundle'
 
 plugins = [
     ('vim-surround',
-        'https://github.com/tpope/vim-surround/archive/f51a26d3710629d031806305b6c8727189cd1935.zip'
-    ),
+        'https://github.com/tpope/vim-surround/archive/f51a26d3710629d031806305b6c8727189cd1935.zip'),
     ('vim-tmux-navigator',
-        'https://github.com/christoomey/vim-tmux-navigator/archive/6c0b5d2faa49f2059331a4004b34a916c96abcb3.zip'
-    ),
+        'https://github.com/christoomey/vim-tmux-navigator/archive/6c0b5d2faa49f2059331a4004b34a916c96abcb3.zip'),
     ('vim-syntastic',
         'https://github.com/vim-syntastic/syntastic/archive/dd226673063b189683b98133d7a2243c1316e71e.zip'),
     ('taglist',
@@ -27,9 +25,11 @@ plugins = [
     ('vim-repeat',
         'https://github.com/tpope/vim-repeat/archive/master.zip'),
     ('vim-airline',
-      'https://github.com/vim-airline/vim-airline/archive/v0.11.zip'),
+        'https://github.com/vim-airline/vim-airline/archive/v0.11.zip'),
     ('vim-airline-themes',
-       'https://github.com/vim-airline/vim-airline-themes/archive/master.zip'),
+        'https://github.com/vim-airline/vim-airline-themes/archive/master.zip'),
+    ('vim-solidity',
+        'https://github.com/ChristianChiarulli/vim-solidity.git'),
 ]
 
 def get_pathogen(dst):

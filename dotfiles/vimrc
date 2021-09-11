@@ -70,6 +70,9 @@ set t_Co=256
 
 syntax on
 
+" Treat vyper files as python (close enough)
+au BufRead,BufNewFile *.vy set syntax=python
+
 " Trying this out, the lucid fold lines are too bright
 highlight Folded ctermbg=235 ctermfg=99
 
@@ -254,10 +257,19 @@ nnoremap <Leader>e :call OpenFileWithLineNumber('e')<CR>
 nnoremap <Leader>s :call OpenFileWithLineNumber('sp')<CR>
 nnoremap <Leader>v :call OpenFileWithLineNumber('vsp')<CR>
 
+
 " https://stackoverflow.com/a/20883905/7228140
 " Jump to next non blank character in column
-" see /\%v and search
+" see `:h /\%v` and search
 noremap <Leader>c :call search('\%' . virtcol('.') . 'v\S', 'W') <CR>
+function! SearchToLastNonwhitespaceBeforeNextInColumn()
+    echo getpos('.')
+    call search('\%' . virtcol('.') . 'v\S', 'W')
+    normal! k
+
+    call search('^.\+', 'b')
+endfunction
+
 
 iabbrev cout std::cout
 iabbrev endl std::endl
@@ -278,3 +290,7 @@ function! RS()
     let g:windowcount = winnr('$')
     "resize
 endfunction
+
+" TODO
+" Window resizing
+" tab mover
