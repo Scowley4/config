@@ -29,7 +29,7 @@ plugins = [
     ('vim-airline-themes',
         'https://github.com/vim-airline/vim-airline-themes/archive/master.zip'),
     ('vim-solidity',
-        'https://github.com/ChristianChiarulli/vim-solidity.git'),
+        'https://github.com/ChristianChiarulli/vim-solidity/archive/master.zip'),
 ]
 
 def get_pathogen(dst):
