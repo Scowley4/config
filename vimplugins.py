@@ -30,6 +30,10 @@ plugins = [
       'https://github.com/vim-airline/vim-airline/archive/v0.11.zip'),
     ('vim-airline-themes',
        'https://github.com/vim-airline/vim-airline-themes/archive/master.zip'),
+    # ('coc.nvim',
+    #    'https://github.com/neoclide/coc.nvim/archive/refs/tags/v0.0.80.zip'),
+    ('vim-commentary',
+      'https://github.com/tpope/vim-commentary/archive/refs/tags/v1.3.zip'),
 ]
 
 def get_pathogen(dst):
