@@ -11,29 +11,29 @@ SUB = 'bundle'
 
 plugins = [
     ('vim-surround',
-        'https://github.com/tpope/vim-surround/archive/f51a26d3710629d031806305b6c8727189cd1935.zip'
-    ),
+       'https://github.com/tpope/vim-surround/archive/f51a26d3710629d031806305b6c8727189cd1935.zip'),
     ('vim-tmux-navigator',
-        'https://github.com/christoomey/vim-tmux-navigator/archive/6c0b5d2faa49f2059331a4004b34a916c96abcb3.zip'
-    ),
+       'https://github.com/christoomey/vim-tmux-navigator/archive/6c0b5d2faa49f2059331a4004b34a916c96abcb3.zip'),
     ('vim-syntastic',
-        'https://github.com/vim-syntastic/syntastic/archive/dd226673063b189683b98133d7a2243c1316e71e.zip'),
+       'https://github.com/vim-syntastic/syntastic/archive/dd226673063b189683b98133d7a2243c1316e71e.zip'),
     ('taglist',
-        'https://github.com/yegappan/taglist/archive/v4.6.zip'),
+       'https://github.com/yegappan/taglist/archive/v4.6.zip'),
     ('ctrlp',
-        'https://github.com/kien/ctrlp.vim/archive/564176f01d7f3f7f8ab452ff4e1f5314de7b0981.zip'),
+       'https://github.com/kien/ctrlp.vim/archive/564176f01d7f3f7f8ab452ff4e1f5314de7b0981.zip'),
     ('linediff',
-        'https://github.com/AndrewRadev/linediff.vim/archive/681a3bc2944059692c91c61fd5c6e01afba28e62.zip'),
+       'https://github.com/AndrewRadev/linediff.vim/archive/681a3bc2944059692c91c61fd5c6e01afba28e62.zip'),
     ('vim-repeat',
-        'https://github.com/tpope/vim-repeat/archive/master.zip'),
+       'https://github.com/tpope/vim-repeat/archive/master.zip'),
     ('vim-airline',
-      'https://github.com/vim-airline/vim-airline/archive/v0.11.zip'),
+       'https://github.com/vim-airline/vim-airline/archive/v0.11.zip'),
     ('vim-airline-themes',
        'https://github.com/vim-airline/vim-airline-themes/archive/master.zip'),
     # ('coc.nvim',
     #    'https://github.com/neoclide/coc.nvim/archive/refs/tags/v0.0.80.zip'),
     ('vim-commentary',
       'https://github.com/tpope/vim-commentary/archive/refs/tags/v1.3.zip'),
+    ('vim-solidity',
+       'https://github.com/ChristianChiarulli/vim-solidity/archive/master.zip'),
 ]
 
 def get_pathogen(dst):
