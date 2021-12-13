@@ -153,13 +153,11 @@ endfunction
 
 autocmd FileType make call SetMakeOptions()
 
-" HTML
-function! SetWebOptions()
-    " echo "Set options for html, js, json, css"
-    set softtabstop=2
-    set tabstop=2
-    set shiftwidth=2
-    set expandtab
+function! SetTwoSpaceOptions()
+    setlocal softtabstop=2
+    setlocal tabstop=2
+    setlocal shiftwidth=2
+    setlocal expandtab
 endfunction
 
 " au BufNewFile,BufRead,FileType *.js, *.html, *.css
@@ -168,13 +166,14 @@ endfunction
 "    \ set shiftwidth=2
 
 " TODO I don't think these belong here, plus should probably be setlocal?
-autocmd FileType html call SetWebOptions()
-autocmd FileType javascript call SetWebOptions()
-autocmd FileType json call SetWebOptions()
-autocmd FileType css call SetWebOptions()
-autocmd FileType cpp call SetWebOptions()
-autocmd BufRead,BufNewFile *.vue call SetWebOptions()
-autocmd Filetype dart setlocal softtabstop=2 tabstop=2 shiftwidth=2 expandtab
+autocmd FileType html       call SetTwoSpaceOptions()
+autocmd FileType javascript call SetTwoSpaceOptions()
+autocmd FileType json       call SetTwoSpaceOptions()
+autocmd FileType css        call SetTwoSpaceOptions()
+autocmd FileType cpp        call SetTwoSpaceOptions()
+autocmd Filetype dart       call SetTwoSpaceOptions()
+autocmd Filetype objc       call SetTwoSpaceOptions()
+autocmd BufRead,BufNewFile *.vue call SetTwoSpaceOptions()
 
 " Turn off arrow keys to force use of hjkl
 noremap <Up> <NOP>
