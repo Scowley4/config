@@ -34,6 +34,8 @@ plugins = [
       'https://github.com/tpope/vim-commentary/archive/refs/tags/v1.3.zip'),
     ('vim-solidity',
        'https://github.com/ChristianChiarulli/vim-solidity/archive/master.zip'),
+    ('vim-indentwise',
+        'https://github.com/jeetsukumaran/vim-indentwise/archive/refs/heads/master.zip'),
 ]
 
 def get_pathogen(dst):
