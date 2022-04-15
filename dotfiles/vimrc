@@ -1,6 +1,6 @@
 
 "let g:pathogen_blacklist = ['vim-syntastic']
-let g:pathogen_blacklist = []
+let g:pathogen_blacklist = ['taglist']
 execute pathogen#infect()
 
 " Airline options
@@ -312,6 +312,12 @@ function! RS()
     let g:windowcount = winnr('$')
     "resize
 endfunction
+
+" Remove unwanted whitespace at ends of lines, also restoring the previous
+" search pattern
+nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+let @f='0f{zf%'
+
 
 " TODO
 " Window resizing
