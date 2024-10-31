@@ -5,6 +5,8 @@ set completion-ignore-case on
 set editing-mode vi
 set keymap vi
 
+set bell-style none
+
 # Display mode
 # set show-mode-in-prompt on
 # set vi-cmd-mode-string "\1\e[2 q\2"
