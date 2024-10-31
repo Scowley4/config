@@ -26,6 +26,9 @@ if (index(g:pathogen_blacklist, 'vim-airline'))
     " let g:airline#extensions#tagbar#flags = 'f'  " show full tag hierarchy
 endif
 
+" NERDTree
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+
 " Syntastic Options and functions
 if (index(g:pathogen_blacklist, 'vim-syntastic'))
     " Basic Syntastic options
@@ -137,7 +140,7 @@ endfunction
 setlocal tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set textwidth=79
+set textwidth=99
 set expandtab
 set autoindent
 
@@ -147,6 +150,7 @@ set pastetoggle=<F2>
 set foldtext=repeat('\ ',indent(v:foldstart)).foldtext()
 
 autocmd FileType python call SetPythonOptions()
+autocmd FileType cairo setlocal commentstring=//%s
 
 " Change tabbing for makefile
 function! SetMakeOptions()
@@ -317,6 +321,12 @@ endfunction
 " search pattern
 nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
 let @f='0f{zf%'
+
+
+nnoremap <leader>- :Ex <CR>
+
+nnoremap <leader>sd :sp<CR>:call jedi#goto()<CR>
+nnoremap <leader>vd :vsp<CR>:call jedi#goto()<CR>
 
 
 " TODO

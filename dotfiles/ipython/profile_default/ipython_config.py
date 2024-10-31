@@ -235,6 +235,9 @@ c.TerminalInteractiveShell.colors = 'Linux'
 c.TerminalInteractiveShell.editor = 'vi'
 c.TerminalInteractiveShell.editing_mode = 'vi'
 
+# Fix to remove the esc-h nonsense in ipython 8
+c.TerminalInteractiveShell.emacs_bindings_in_vi_insert_mode = False
+
 # Deprecated, use PromptManager.justify
 # c.TerminalInteractiveShell.prompts_pad_left = True
 

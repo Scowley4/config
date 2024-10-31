@@ -31,13 +31,24 @@ plugins = [
     # ('coc.nvim',
     #    'https://github.com/neoclide/coc.nvim/archive/refs/tags/v0.0.80.zip'),
     ('vim-commentary',
-      'https://github.com/tpope/vim-commentary/archive/refs/tags/v1.3.zip'),
+       'https://github.com/tpope/vim-commentary/archive/refs/tags/v1.3.zip'),
     ('vim-solidity',
        'https://github.com/ChristianChiarulli/vim-solidity/archive/master.zip'),
     ('vim-indentwise',
        'https://github.com/jeetsukumaran/vim-indentwise/archive/refs/heads/master.zip'),
     ('vim-solidity',
        'https://github.com/TovarishFin/vim-solidity/archive/refs/heads/master.zip'),
+    # ('cairo.vim',
+    #    'https://github.com/miguelmota/cairo.vim/archive/d3cf09cec98fe35f4a07b3d1b90a3ecd55e231bc.zip'),
+    # ('cairo.vim',
+    #    'https://github.com/codemedian/cairo.vim/archive/345c8cd425ac5ea3b5956258830854488513cf25.zip'),
+    ('SimpylFold',
+       'https://github.com/tmhedberg/SimpylFold/archive/refs/tags/v2.0.zip'),
+    ('vim-flake8',
+       'https://github.com/nvie/vim-flake8/archive/refs/tags/1.7.zip'),
+    # ('nerdtree',
+    #    'https://github.com/preservim/nerdtree/archive/refs/tags/6.10.16.zip'),
+
 ]
 
 def get_pathogen(dst):
