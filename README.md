@@ -21,3 +21,9 @@ Get [pathogen](https://github.com/tpope/vim-pathogen)
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 ```
+
+Get [jedi-vim](https://github.com/davidhalter/jedi-vim)
+
+```
+git clone --recursive https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim
+```
