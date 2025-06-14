@@ -24,4 +24,4 @@ fi
 export HISTIGNORE="ls:cd:cd .."
 
 export VISUAL=vim
-export EDITOR="VISUAL"
+export EDITOR="$VISUAL"
