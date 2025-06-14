@@ -53,7 +53,7 @@ def ensure_link(src, dst, backupdir=None):
 
 
 def clone(repo, path):
-    """Clones a git repo to a give path relative to the home directory"""
+    """Clones a git repo to a given path relative to the home directory"""
     path = os.path.join(os.environ['HOME'], path)
     if not os.path.exists(path):
         ensure_filedir(path)
